@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+
+#background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+}
+
+
+@media (min-width: 768px) {
+  #background {
+    content: url('assets/golfbackground-desktop.jpeg');
+  }
+}
+
+
+@media (max-width: 767px) {
+  #background {
+    content: url('assets/golfbackground.jpeg');
+  }
+}
+
+/* Ball styling */
+#ball {
+  width: 50px;
+  position: absolute;
+  top: 70%; 
+  left: calc(50% - 25px);
+  z-index: 3;
+  transition: transform 0.1s;
+}
+
+/* Hole styling */
+#hole {
+  width: 60px;
+  position: absolute;
+  top: 22%;
+  left: calc(50% - 30px);
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  #hole {
+    top: 20%;
+    left: calc(50% - 30px);
+  }
+  #ball {
+    top: 68%;
+    left: calc(50% - 25px);
+  }
+}
+
+/* Power bar */
+#power-bar {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  z-index: 4;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+#power-fill {
+  height: 100%;
+  width: 0%;
+  background: #21c55d; 
+  transition: width 0.02s linear, background 0.1s linear;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+
+#cta {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e8e3e;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 4;
+}
+
+#cta:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+
+#instruction {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+  z-index: 4;
+}
