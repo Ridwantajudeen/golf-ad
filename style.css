@@ -9,8 +9,8 @@ body {
   height: 100vh;
   font-family: sans-serif;
   user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #game {
@@ -19,70 +19,63 @@ body {
   position: relative;
 }
 
-/* Background image responsive */
 #background {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
   z-index: 1;
-  -webkit-user-drag: none; /* Prevent drag highlight */
+  -webkit-user-drag: none;
   user-select: none;
 }
 
-/* Desktop background */
 @media (min-width: 768px) {
   #background {
     content: url('assets/golfbackground-desktop.jpeg');
   }
 }
 
-/* Mobile background */
 @media (max-width: 767px) {
   #background {
     content: url('assets/golfbackground.jpeg');
   }
 }
 
-/* Ball styling */
 #ball {
   width: 50px;
   position: absolute;
   top: 70%;
-  left: calc(50% - 25px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   transition: transform 0.1s;
-  touch-action: none;          /* Prevent default touch actions */
-  -webkit-user-drag: none;     /* Safari/Chrome prevent drag highlight */
+  touch-action: none;
+  -webkit-user-drag: none;
   user-select: none;
   cursor: pointer;
 }
 
-/* Hole styling */
 #hole {
   width: 60px;
   position: absolute;
   top: 22%;
-  left: calc(50% - 30px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
-/* Responsive adjustments */
 @media (min-width: 768px) {
   #hole {
     top: 20%;
-    left: calc(50% - 30px);
   }
   #ball {
     top: 68%;
-    left: calc(50% - 25px);
   }
 }
 
-/* Power bar */
 #power-bar {
   position: absolute;
-  bottom: 120px;
+  bottom: 110px;
   left: 50%;
   transform: translateX(-50%);
   width: 140px;
@@ -102,10 +95,9 @@ body {
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 
-/* CTA button */
 #cta {
-  position: absolute;
-  bottom: env(safe-area-inset-bottom, 35px); /* ensures visibility on iOS notches */
+  position: fixed;
+  bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
   background: #1e8e3e;
@@ -116,14 +108,13 @@ body {
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 4;
+  z-index: 5;
 }
 
 #cta:active {
   transform: translateX(-50%) scale(0.95);
 }
 
-/* Instruction overlay */
 #instruction {
   position: absolute;
   top: 10%;
